@@ -1,8 +1,13 @@
 # docker-monitor
 
+## Introduction
 This stack is based on InfluxDB, Kapacitor, and grafana to build up a simple monitoring demo platform. It also use nginx as a reverse proxy to link the backend.
 
-### How to use
+## Pre-request
+- docker: 1.10.0 or above
+- docker-compose: 1.6.0 or above
+
+## How to use
 #### 1. Monify the URL settings in `./etc/nginx/conf.d/monitor.conf` and `docker-compose.yml`
 Change the example.com to the domain you use.
 ```
