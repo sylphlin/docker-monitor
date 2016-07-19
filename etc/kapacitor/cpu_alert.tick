@@ -1,0 +1,11 @@
+stream
+    |from()
+        .database('telegraf')
+        .retentionPolicy('default')
+        .measurement('cpu')
+    |alert()
+        .message('{{ .ID }} is {{ .Level }} value: {{ index .Fields "usage_idle" }}')
+        .crit(lambda: "usage_idle" <  70)
+        .stateChangesOnly()
+        .slack()
+        .log('/var/log/kapacitor/cpu_alerts.log')
